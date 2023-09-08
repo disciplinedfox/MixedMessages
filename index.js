@@ -4,28 +4,32 @@ function generateRandomNumber(num) {
   }
 
 const dailyActivities = {
-    health: ["going for a jog", "doing yoga", "lifting weights", "using a new healthy recipe to cook"],
-    mind: ["reading a book", "watching a personal development video", "practicing a new language", "playing music"],
-    relationships: ["meeting a friend for coffee", "calling a loved one who is long distance", "buying a gift for someone special", "volunteering for the community"]
+    health: ["go for a jog", "do yoga", "lift weights", "use a new healthy recipe to cook"],
+    mind: ["read a book", "watch a personal development video", "practice a new language", "play music"],
+    relationships: ["meet a friend for coffee", "call a loved one who is long distance", "buy a gift for someone special", "volunteer for the community"]
 }
 
 let todaysActivity = [];
 //store selected categorical activity in an array
 
 // Iterate over the object
+function getActivity() {
 for(let prop in dailyActivities) {
     let optionIdx = generateRandomNumber(dailyActivities[prop].length);
     switch(prop) {
         case 'health':
-          todaysActivity.push(`Your sign right now is a "${dailyActivities[prop][optionIdx]}".`)
+            todaysActivity.push(`For your health today you should ${dailyActivities[prop][optionIdx]}.`)
           break
         case 'mind':
-          todaysActivity.push(`You are having: "${dailyActivities[prop][optionIdx]}".`)
+          todaysActivity.push(`For your mind today you should ${dailyActivities[prop][optionIdx]}.`)
           break
         case 'relationships':
-          todaysActivity.push(`You should: "${dailyActivities[prop][optionIdx]}".`)
+          todaysActivity.push(`For your relationships today you should ${dailyActivities[prop][optionIdx]}.`)
           break
         default:
           todaysActivity.push('There is not enough info.')
       }
 }
+}
+getActivity()
+console.log(todaysActivity)
